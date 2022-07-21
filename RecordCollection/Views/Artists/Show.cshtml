@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Record Collection!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    @using RecordCollection.Models;
+
+    <h3>Here are all records by this artist:</h3>
+
+    <ol>
+    @foreach (Record record in @Model["records"])
+    {
+      <li><a href='/artists/@Model["artist"].Id/records/@record.Id'>@record.Description</a></li>
+    }
+    </ol>
+
+    <p><a href='/artists/@Model["artist"].Id/records/new'>Add a new record</a></p>
+    <p><a href='/artists'>Return to artist list</a></p>
+    <p><a href='/'>Return to Main Page</a></p>
+  </body>
+</html>
